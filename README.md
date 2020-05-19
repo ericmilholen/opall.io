@@ -1,6 +1,6 @@
 ## Setup
 
-Manually clone the repo and then run `npm install` in both the server and the client.
+Manually clone the repo and then run `npm install` in both the eric server and the client.
 
 
 ## .env should look like this:
