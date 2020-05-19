@@ -4,8 +4,6 @@
 			<h3 class="text-white">Edit this Task</h3>
 		</section>
 
-		{{ taskId }}
-
 		<ValidationObserver v-slot="{ handleSubmit }">
 			<form class="w-100" @submit.prevent="handleSubmit(editTask)">
 				<div class="row">
@@ -119,8 +117,7 @@
 				</section>
 			</form>
 		</ValidationObserver>
-
-		<input type="text" v-model="te">
+		{{ task_id }}
 	</div>
 </template>
 
@@ -133,49 +130,55 @@
 	/*** [EXPORT] ***/
 	export default {
 		data: function() {
-			// Get Email
+			// Get Email // Return Data //
 			let email = UserService.getEmail()
-
 			return {
 				email,
-				submitted: false,
-				taskId: this.$route.params.id,
+				authorized: false,
+				submitted: true,
+				task_id: this.$route.params.id,
 				details: [],
 				title: '',
 				type: '',
 				timeDue: '',
 				dateDue: '',
 				description: '',
-				te:''
 			}
 		},
 
 		created: async function() {
+			// Check if User Owns // Set Authorized Var // Log //
+			const authStatus = await TaskService.taskOwnershipValidation(
+				this.task_id, this.email
+			)
+			this.authorized = authStatus.data.owned
+			console.log('Authorized:', this.authorized)
 
-			//taskedOwnedByUser(this.email, this.taskId)
+			// Display Data if Authorized //
+			if (this.authorized) {
+				// Enable Submit Button //
+				this.submitted = false
 
-			// Get task details
-			try {
-				this.details = await TaskService.getSingleTaskData(this.taskId)
+				// Get task details
+				try {
+					this.details = await TaskService.getSingleTaskData(this.task_id)
+				}
+				catch(err) {
+					console.log(err) 
+				}
+
+				// Set details on this form
+				this.title = this.details[0].title
+				this.type = this.details[0].type
+				this.timeDue = this.details[0].timeDue
+				this.dateDue = this.details[0].dateDue
+				this.description = this.details[0].description
 			}
-			catch(err) {
-				console.log(err) 
+			else {
+				// Disable Submit Button // Redirect //
+				this.submitted = true
+				router.push({ path: '/tasks' })			
 			}
-
-			// Set details on this form
-			this.title = this.details[0].title
-			this.type = this.details[0].type
-			this.timeDue = this.details[0].timeDue
-			this.dateDue = this.details[0].dateDue
-			this.description = this.details[0].description
-		},
-
-		beforeUpdate() {
-			console.log('bu')	
-		},
-
-		updated() {
-			console.log('u')
 		},
 
 		methods: {
@@ -185,7 +188,7 @@
 
 				// Call Function // Update Page //
 				await TaskService.updateTask(
-					this.taskId,
+					this.task_id,
 					this.title,
 					this.type,
 					this.timeDue,

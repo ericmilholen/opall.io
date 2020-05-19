@@ -105,6 +105,23 @@ router.delete('/:id', async (req, res) => {
 	// Set Status // [RES SEND] //
 	res.status(200).send()
 })
+///////////////// CRRUD DONE /////////////////
+
+/*** [T/F] ***/
+router.get('/task/ownership-validation/:id', async (req, res) => {
+	const tasks = await loadTasksCollection()
+	
+	let foundObject = await tasks.findOne(
+		{
+			_id: new mongodb.ObjectID(req.params.id),
+			email: req.query.email
+		},
+	)
+	console.log('email recieved:', req.query.email)
+
+	if (foundObject) { res.json({ owned: true }).send() }
+	else { res.json({ owned: false }).send() }
+})
 
 
 // [F] Tasks Collection in Database //

@@ -1,6 +1,7 @@
 /*** [IMPORT] ***/
 import jwtDecode from 'jwt-decode'
 
+/*** [CLASS] UserService ***/
 class UserService {
    static getEmail() {
       // [INIT] GET EMAIL! // Check For Token // Define Decode //
