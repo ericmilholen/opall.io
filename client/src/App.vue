@@ -13,7 +13,7 @@
 		<!-- Router for Pages -->
 		<div
 			class="main-content"
-			v-bind:class="{
+			:class="{
 				loggedOut: !loggedIn,
 				container: loggedIn
 			}"

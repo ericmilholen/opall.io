@@ -15,9 +15,9 @@
 			<div
 				class="card mb-3 bg-dark flex-card"
 				v-for="(task, index) in tasks"
-				v-bind:items="task"
-				v-bind:index="index"
-				v-bind:key="task._id"
+				:items="task"
+				:index="index"
+				:key="task._id"
 			>
 				<div
 					class="card-body"

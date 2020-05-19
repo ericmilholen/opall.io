@@ -18,7 +18,7 @@
 								name="email"
 								type="email"
 								class="form-control bg-dark text-white border-secondary"
-								v-bind:class="{ 'is-invalid': errors!='' }"
+								:class="{ 'is-invalid': errors!='' }"
 								placeholder="Example@example.com"
 							>
 							<span class="text-danger">{{ errors[0] }}</span>
@@ -37,7 +37,7 @@
 								name="password"
 								type="password"
 								class="form-control bg-dark text-white border-secondary"
-								v-bind:class="{ 'is-invalid': errors!='' }"
+								:class="{ 'is-invalid': errors!='' }"
 								placeholder="******"
 							>
 							<span class="text-danger">{{ errors[0] }}</span>

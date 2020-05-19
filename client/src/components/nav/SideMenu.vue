@@ -2,13 +2,13 @@
 	<div
 		class="bg-secondary shadow opacity-90 nav-drawer-menu"
 		style="z-index: 1040;"
-		v-bind:class="{ isOpen: sideMenuStatus }"
+		:class="{ isOpen: sideMenuStatus }"
 	>
 		<button
-			class="w-100 m-0 p-5 btn btn-dark bg-dark text-center text-secondary"
+			class="w-100 m-0 p-2 btn btn-dark bg-dark text-center text-secondary"
 			@click="closeMenu"
 		>
-			<span aria-hidden="true">&times;</span>
+			<span aria-hidden="true" style="font-size: 2em;">&times;</span>
 		</button>
 
 		<button

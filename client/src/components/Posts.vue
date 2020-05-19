@@ -31,9 +31,9 @@
 			<div
 				class="card mb-3 bg-dark flex-card"
 				v-for="(post, index) in posts"
-				v-bind:items="post"
-				v-bind:index="index"
-				v-bind:key="post._id"
+				:items="post"
+				:index="index"
+				:key="post._id"
 			>
 				<div class="card-body">
 					<p class="card-text text-secondary">

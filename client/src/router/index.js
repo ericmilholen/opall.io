@@ -3,20 +3,19 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 /*** [IMPORT] Personal ***/
-import Dashboard from '../pages/Dashboard'
-import Login from '../pages/Login'
-import Register from '../pages/Register'
-import Profile from '../pages/Profile'
-import Tasks from '../pages/Tasks'
 import AddTask from '../pages/AddTask'
+import Dashboard from '../pages/Dashboard'
 import EditTask from '../pages/EditTask'
-
-
+import Login from '../pages/Login'
+import NotFound from '../pages/404'
+import Profile from '../pages/Profile'
+import Register from '../pages/Register'
+import Tasks from '../pages/Tasks'
 
 /*** [USE] ***/
 Vue.use(Router)
 
- 
+
 
 /*** [EXPORT] ***/
 export default new Router({
@@ -83,7 +82,15 @@ export default new Router({
 				auth: true,
 				title: 'Edit this Task'
 			},
-			props: true
+		},
+		{
+			path: '/**',
+			name: '404',
+			component: NotFound,
+			meta: {
+				auth: true,
+				title: '404 Not Found..'
+			},
 		}
 	]
 })
