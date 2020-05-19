@@ -38,15 +38,15 @@
 					</p>
 
 					<!-- Type & Title -->
-					<h5
-						class="card-title text-white"
+					<h6
+						class="card-title text-secondary"
 						v-on:click.self="
 							taskDetailsToggle();
 							loadTaskDetails(task);
 						"
 					>
-						Type: {{ task.type }}
-					</h5>
+						{{ task.type }}
+					</h6>
 					<h5
 						class="text-white"
 						v-on:click.self="

@@ -4,22 +4,31 @@
 		style="z-index: 1040;"
 		v-bind:class="{ isOpen: sideMenuStatus }"
 	>
-		<a
-			class="w-100 m-0 p-5 text-center bg-dark text-secondary"
+		<button
+			class="w-100 m-0 p-5 btn btn-dark bg-dark text-center text-secondary"
 			@click="closeMenu"
 		>
 			<span aria-hidden="true">&times;</span>
-		</a>
+		</button>
 
-		<router-link to="/">Home</router-link>
-		<router-link to="/">View Tasks</router-link>
-		<router-link to="/profile">Your Profile</router-link>
-		<a href="/" v-on:click="logout">Log Out</a>
+		<button
+			class="w-100 btn btn-secondary"
+			v-on:click="homeBtn();"
+		>Home</button>
+		<button
+			class="w-100 btn btn-secondary"
+			v-on:click="yourTaskBtn();">
+		Your Tasks</button>
+		<button
+			class="w-100 btn btn-secondary"
+			v-on:click="yourProfileBtn();"
+		>Your Profile</button>
 	</div>
 </template>
 <script>
 	/*** [IMPORT] ***/
 	import { EventBus } from '../../main'
+	import router from '../../router'
 
 	/*** [EXPORT] ***/
 	export default {
@@ -39,8 +48,20 @@
 			closeMenu() {
 				this.sideMenuStatus = !this.sideMenuStatus
 			},
-			logout() {
-				localStorage.removeItem('usertoken')
+
+			homeBtn() {
+				this.sideMenuStatus = !this.sideMenuStatus
+				router.push({ path: '/' })
+			},
+
+			yourTaskBtn() {
+				this.sideMenuStatus = !this.sideMenuStatus
+				router.push({ path: '/tasks' })
+			},
+
+			yourProfileBtn() {
+				this.sideMenuStatus = !this.sideMenuStatus
+				router.push({ path: '/profile' })
 			},
 		}
 	}
@@ -59,19 +80,11 @@
 		transition: 0.5s;
 	}
 
-	.nav-drawer-menu a {
-		display: block;
-		padding: 15px;
-
-		color: white;
+	.nav-drawer-menu button {
 		transition: 0.3s;
 		font-size: 2em;
-
-		text-align: center;
-		text-decoration: none;
 	}
-	.nav-drawer-menu a:hover { background: #212529; }
-	.isOpen {
-		width: 75%;
-	}
+	.nav-drawer-menu button:hover { background: #212529; }
+	
+	.isOpen { width: 75%; }
 </style>

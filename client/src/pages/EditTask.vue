@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<section class="my-3">
-			<h3 class="text-white">Edit Task: {{ taskId }}</h3>
+			<h3 class="text-white">Edit this Task</h3>
 		</section>
 
 		<ValidationObserver v-slot="{ handleSubmit }">
