@@ -27,6 +27,7 @@
 		created: function() {
 			// [CHECK IF LOGGEDIN] //
 			if (localStorage.usertoken) { this.loggedIn = true }
+			else { this.loggedIn = false }
 
 			// [EMIT IN] //
 			EventBus.$on('logged-in', () => { this.loggedIn = true })

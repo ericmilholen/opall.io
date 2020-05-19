@@ -4,6 +4,8 @@
 			<h3 class="text-white">Edit this Task</h3>
 		</section>
 
+		{{ taskId }}
+
 		<ValidationObserver v-slot="{ handleSubmit }">
 			<form class="w-100" @submit.prevent="handleSubmit(editTask)">
 				<div class="row">
@@ -117,6 +119,8 @@
 				</section>
 			</form>
 		</ValidationObserver>
+
+		<input type="text" v-model="te">
 	</div>
 </template>
 
@@ -141,7 +145,8 @@
 				type: '',
 				timeDue: '',
 				dateDue: '',
-				description: ''
+				description: '',
+				te:''
 			}
 		},
 
@@ -165,6 +170,14 @@
 			this.description = this.details[0].description
 		},
 
+		beforeUpdate() {
+			console.log('bu')	
+		},
+
+		updated() {
+			console.log('u')
+		},
+
 		methods: {
 			async editTask() {
 				// Disable Button //
@@ -182,7 +195,7 @@
 
 				// [REDIRECT] //
 				router.push({ name: 'Tasks' })
-			}
+			},
 		}
 	}
 </script>

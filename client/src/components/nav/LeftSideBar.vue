@@ -11,12 +11,6 @@
 						<button class="w-100 btn btn-outline-secondary">Your Tasks</button>
 					</router-link>
 				</li>
-				
-				<li class="nav-item">
-					<router-link to="/tasks/edit-task/12" class="nav-link active">
-						<button class="w-100 btn btn-outline-secondary">Settings</button>
-					</router-link>
-				</li>
 			</ul>
 			<friends-list />
 		</div>

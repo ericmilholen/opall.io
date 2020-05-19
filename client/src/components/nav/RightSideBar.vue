@@ -5,20 +5,15 @@
 			<div class="spacer"></div>
 			
 			<ul class="nav flex-column">
+				<!--  Sample Item
 				<li class="nav-item">
-					<a class="nav-link active" href="/tasks/create-task">
+					<router-link to="/tasks/add-task" class="nav-link active">
 						<button class="btn btn-outline-success right-sidebar-button">
-							[ + ] Create Task
+							Request Task
 						</button>
-					</a>
+					</router-link>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="/events/create-event">
-						<button class="btn btn-outline-success right-sidebar-button">
-							[ + ] Enter Event
-						</button>
-					</a>
-				</li>
+				-->
 			</ul>
 		</div>
 	</nav>

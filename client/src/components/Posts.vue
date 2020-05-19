@@ -6,7 +6,7 @@
 				id="create-post"
 				type="text"
 				class="w-75 form-control text-light bg-dark border-secondary"
-				placeholder="Create a Task"
+				placeholder="Create a post.."
 				aria-label="Recipient's username"
 				v-model="text"
 			>

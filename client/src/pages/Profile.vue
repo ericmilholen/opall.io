@@ -1,22 +1,21 @@
 <template>
 	<div class="container">
-		<br>
-		
-		<h1 class="text-center text-white">Your Profile</h1>
-		<hr>
+		<section class="row w-100">
+			<h2 class="col-sm-12 my-3 text-white">Your Profile</h2>
+		</section>
 
 		<table class="table table-borderless rounded table-dark w-100">
 			<tr>
 				<td>First Name</td>
-				<td>{{first_name}}</td>
+				<td>{{ first_name }}</td>
 			</tr>
 			<tr>
 				<td>Last Name</td>
-				<td>{{last_name}}</td>
+				<td>{{ last_name }}</td>
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td>{{email}}</td>
+				<td>{{ email }}</td>
 			</tr>
 		</table>
 

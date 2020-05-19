@@ -23,6 +23,10 @@
 			class="w-100 btn btn-secondary"
 			v-on:click="yourProfileBtn();"
 		>Your Profile</button>
+
+		<a href="/">
+			<button v-on:click="logout" class="w-100 btn btn-secondary">Logout</button>
+		</a>
 	</div>
 </template>
 <script>
@@ -62,6 +66,10 @@
 			yourProfileBtn() {
 				this.sideMenuStatus = !this.sideMenuStatus
 				router.push({ path: '/profile' })
+			},
+
+			logout() {
+				localStorage.removeItem('usertoken')
 			},
 		}
 	}
