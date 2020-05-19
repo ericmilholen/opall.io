@@ -11,8 +11,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import Vue from 'vue'
 
-
-
 /*** [IMPORT] Personal ***/
 import './assets/style/style.css'
 import './stuff-n-rules'

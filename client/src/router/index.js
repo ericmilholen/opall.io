@@ -9,13 +9,14 @@ import Register from '../pages/Register'
 import Profile from '../pages/Profile'
 import Tasks from '../pages/Tasks'
 import AddTask from '../pages/AddTask'
+import EditTask from '../pages/EditTask'
 
 
 
 /*** [USE] ***/
 Vue.use(Router)
 
-
+ 
 
 /*** [EXPORT] ***/
 export default new Router({
@@ -73,6 +74,16 @@ export default new Router({
 				auth: true,
 				title: 'Add a Task'
 			}
+		},
+		{
+			path: '/tasks/edit-task/:id',
+			name: 'EditTask',
+			component: EditTask,
+			meta: {
+				auth: true,
+				title: 'Edit this Task'
+			},
+			props: true
 		}
 	]
 })

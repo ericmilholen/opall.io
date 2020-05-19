@@ -26,10 +26,10 @@
 
 <script>
 	/*** [IMPORT] Personal ***/
-	import LeftSideBar from './components/LeftSideBar'
-	import NavBar from './components/NavBar'
-	import RightSideBar from './components/RightSideBar'
-	import SideMenu from './components/SideMenu'
+	import LeftSideBar from './components/nav/LeftSideBar'
+	import NavBar from './components/nav/NavBar'
+	import RightSideBar from './components/nav/RightSideBar'
+	import SideMenu from './components/nav/SideMenu'
 	import { EventBus } from './main'
 
 

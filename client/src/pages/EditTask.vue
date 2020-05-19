@@ -1,11 +1,11 @@
 <template>
-   <article>
-		<section class="row w-100">
-			<h2 class="col-sm-12 my-3 text-white">Creat Task</h2>
+	<div>
+		<section class="my-3">
+			<h3 class="text-white">Edit Task: {{ taskId }}</h3>
 		</section>
 
 		<ValidationObserver v-slot="{ handleSubmit }">
-			<form class="w-100" @submit.prevent="handleSubmit(createTask)">
+			<form class="w-100" @submit.prevent="handleSubmit(editTask)">
 				<div class="row">
 					<!-- Title -->
 					<ValidationProvider
@@ -23,7 +23,7 @@
 						>
 						<span class="text-danger">{{ errors[0] }}</span>
 					</ValidationProvider>
-
+				
 					<!-- Type -->
 					<ValidationProvider
 						tag="div"
@@ -106,8 +106,9 @@
 					class="btn btn-outline-primary btn-lg btn-block"
 					type="submit"
 					:disabled="submitted"
+					v-on:click.self="editTask()"
 				>
-					Create Task
+					Edit Task
 				</button>
 				<hr class="mb-4">
 
@@ -116,25 +117,26 @@
 				</section>
 			</form>
 		</ValidationObserver>
-   </article>
+	</div>
 </template>
 
 <script>
 	/*** [IMPORT] Personal ***/
 	import router from '../router'
-	import UserServices from '../services/UserService'
 	import TaskService from '../services/TaskService'
+	import UserService from '../services/UserService'
 
 	/*** [EXPORT] ***/
 	export default {
 		data: function() {
 			// Get Email
-			let email = UserServices.getEmail()
+			let email = UserService.getEmail()
 
-			// [RETURN] //
 			return {
+				email,
 				submitted: false,
-				email: email,
+				taskId: this.$route.params.id,
+				details: [],
 				title: '',
 				type: '',
 				timeDue: '',
@@ -143,15 +145,34 @@
 			}
 		},
 
+		created: async function() {
+
+			//taskedOwnedByUser(this.email, this.taskId)
+
+			// Get task details
+			try {
+				this.details = await TaskService.getSingleTaskData(this.taskId)
+			}
+			catch(err) {
+				console.log(err) 
+			}
+
+			// Set details on this form
+			this.title = this.details[0].title
+			this.type = this.details[0].type
+			this.timeDue = this.details[0].timeDue
+			this.dateDue = this.details[0].dateDue
+			this.description = this.details[0].description
+		},
+
 		methods: {
-			// [CREATE] Create Task Via TaskService Function //
-			async createTask() {
+			async editTask() {
 				// Disable Button //
 				this.submitted = true
 
 				// Call Function // Update Page //
-				await TaskService.insertTask(
-					this.email,
+				await TaskService.updateTask(
+					this.taskId,
 					this.title,
 					this.type,
 					this.timeDue,
@@ -161,7 +182,7 @@
 
 				// [REDIRECT] //
 				router.push({ name: 'Tasks' })
-			},
+			}
 		}
 	}
 </script>

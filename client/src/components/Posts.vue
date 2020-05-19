@@ -61,7 +61,7 @@
 	/*** [EXPORT] ***/
 	export default {
 		data: function() {
-			// Get Email //
+			// Get Email
 			let email = UserService.getEmail()
 
 			// [RETURN] //

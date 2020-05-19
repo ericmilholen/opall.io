@@ -37,14 +37,20 @@
 						{{ task.description }}
 					</p>
 
-					<!-- Delete Button -->
+					<!-- Edit Delete Button -->
 					<div class="w-100 mx-auto text-center">
-						<button class="w-25 btn btn-outline-secondary mx-1">
+						
+						<button
+							class="w-25 btn btn-outline-secondary mx-1"
+							@click="redirectToEditTask(task._id)"
+						>
 							Edit
 						</button>
+					
+
 						<button
-							:disabled="deleteSubmitted"
 							class="w-25 btn btn-outline-danger mx-1"
+							:disabled="deleteSubmitted"
 							@click="$emit('deleteTask', task._id)"
 						>
 							Delete
@@ -58,6 +64,9 @@
 </template>
 
 <script>
+	/*** [IMPORT] Personal ***/
+	import router from '../router'
+
 	/*** [EXPORT] ***/
 	export default {
 		props: {
@@ -71,13 +80,13 @@
 			}
 		},
 
-		data () {
+		data: function() {
 			return {
 				text: 'this is the description'
 			}
 		},
 
-		mounted() {
+		mounted: function() {
 			this.$refs.parent.focus()
 		},
 		
@@ -85,6 +94,11 @@
 			closeClicked() {
 				this.$emit('closeClicked')
 			},
+
+			redirectToEditTask(id) {
+				// [REDIRECT]
+				router.push({ path: `/tasks/edit-task/${id}` })
+			}
 		}
 	}
 </script>
