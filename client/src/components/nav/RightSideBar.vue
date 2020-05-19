@@ -7,12 +7,16 @@
 			<ul class="nav flex-column">
 				<li class="nav-item">
 					<a class="nav-link active" href="/tasks/create-task">
-						<button class="btn btn-outline-success right-sidebar-button">[ + ] Create Task</button>
+						<button class="btn btn-outline-success right-sidebar-button">
+							[ + ] Create Task
+						</button>
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link active" href="/events/create-event">
-						<button class="btn btn-outline-success right-sidebar-button">[ + ] Enter Event</button>
+						<button class="btn btn-outline-success right-sidebar-button">
+							[ + ] Enter Event
+						</button>
 					</a>
 				</li>
 			</ul>

@@ -17,7 +17,7 @@
 						<input
 							type="text"
 							name="title"
-							class="form-control bg-dark border-secondary text-white"
+							class="form-control border-secondary bg-dark text-white"
 							placeholder="Task title"
 							v-model="title"
 						>
@@ -34,7 +34,7 @@
 						<input
 							type="text"
 							name="type"
-							class="form-control bg-dark border-secondary text-white"
+							class="form-control border-secondary bg-dark text-white"
 							placeholder="Task Type"
 							v-model="type"
 						>
@@ -54,7 +54,7 @@
 						<input
 							type="date"
 							name="dueDate"
-							class="form-control bg-dark border-secondary text-white"
+							class="form-control border-secondary bg-dark text-white"
 							v-model="dateDue"
 						>
 						<span class="text-danger">{{ errors[0] }}</span>
@@ -71,7 +71,7 @@
 						<input
 							type="time"
 							name="dueTime"
-							class="form-control bg-dark border-secondary text-white"
+							class="form-control border-secondary bg-dark text-white"
 							v-model="timeDue"
 						>
 						<span class="text-danger">{{ errors[0] }}</span>
@@ -91,7 +91,7 @@
 							name="description"
 							rows="10"
 							cols="60"
-							class="w-100 form-control bg-dark border-secondary text-white"
+							class="w-100 form-control border-secondary bg-dark text-white"
 							style="resize: none"
 							placeholder="Type description here.."
 							v-model="description"
@@ -133,8 +133,8 @@
 
 			// [RETURN] //
 			return {
-				submitted: false,
 				email: email,
+				submitted: false,
 				title: '',
 				type: '',
 				timeDue: '',

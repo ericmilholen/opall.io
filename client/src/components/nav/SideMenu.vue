@@ -5,17 +5,16 @@
 		v-bind:class="{ isOpen: sideMenuStatus }"
 	>
 		<a
-			@click="closeMenu"
 			class="w-100 m-0 p-5 text-center bg-dark text-secondary"
+			@click="closeMenu"
 		>
 			<span aria-hidden="true">&times;</span>
 		</a>
 
-		<a href="/">Home</a>
-		<a href="/tasks">View Tasks</a>
-		<a href="/your-account">Your Account</a>
-		<a href="/your-profile">Your Profile</a>
-		<a href="/logout.php" id="bottom-btn">Log Out</a>
+		<router-link to="/">Home</router-link>
+		<router-link to="/">View Tasks</router-link>
+		<router-link to="/profile">Your Profile</router-link>
+		<a href="/" v-on:click="logout">Log Out</a>
 	</div>
 </template>
 <script>
@@ -39,7 +38,10 @@
 		methods: {
 			closeMenu() {
 				this.sideMenuStatus = !this.sideMenuStatus
-			}
+			},
+			logout() {
+				localStorage.removeItem('usertoken')
+			},
 		}
 	}
 </script>

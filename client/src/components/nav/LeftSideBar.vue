@@ -8,13 +8,13 @@
 			<ul class="nav flex-column">
 				<li class="nav-item">
 					<router-link to="/tasks" class="nav-link active">
-						<button class="btn btn-outline-secondary w-100">Your Tasks</button>
+						<button class="w-100 btn btn-outline-secondary">Your Tasks</button>
 					</router-link>
 				</li>
 				
 				<li class="nav-item">
 					<router-link to="/tasks/edit-task/12" class="nav-link active">
-						<button class="btn btn-outline-secondary w-100">Settings</button>
+						<button class="w-100 btn btn-outline-secondary">Settings</button>
 					</router-link>
 				</li>
 			</ul>

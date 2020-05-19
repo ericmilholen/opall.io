@@ -4,8 +4,8 @@
  * %%%%%%%%%%%%%%%%%%%%%% *
  * Class Attributes are orded 
  * by "CRRUD" then alphabetical
- * for other classes not within
- * "CRRUD"
+ * for other functions that is 
+ * not part of "CRRUD"
 */
 /*** [IMPORT] ***/
 import axios from 'axios'
