@@ -45,7 +45,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	td {
 		color: white;
 	}

@@ -59,7 +59,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	/* 
 	* Center Content that has 
 	* spacing for the sidebars

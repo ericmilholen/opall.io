@@ -17,18 +17,12 @@ import './stuff-n-rules'
 import App from './App.vue'
 import router from './router'
 
-
-
 /*** [GLOBAL COMPONENTS] ***/
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.component('ValidationProvider', ValidationProvider)
 
-
-
 /*** [EXPORT] Event Bus ***/
 export const EventBus = new Vue()
-
-
 
 /*** [RENDER] ***/
 Vue.config.productionTip = false

@@ -4,6 +4,5 @@
 		<div class="w-100 m-auto text-center">
 			<button class="m-auto btn btn-outline-primary">Go Home</button>
 		</div>
-		
 	</div>
 </template>

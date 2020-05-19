@@ -2,10 +2,9 @@
  * %%%%%%%%%%%%%%%%%%%%%% *
  * %%% TASKS SERVICES %%% *
  * %%%%%%%%%%%%%%%%%%%%%% *
- * Class Attributes are orded 
- * by "CRRUD" then alphabetical
- * for other functions that is 
- * not part of "CRRUD"
+ * Ordered by "CRRUD" first then 
+ * alphabeticaly for everything 
+ * else 
 */
 /*** [IMPORT] ***/
 import axios from 'axios'
@@ -26,7 +25,7 @@ class TaskService {
 
 	// [READ ALL] Tasks //
 	static getTasks(email) {
-		// Get the tasks from the server
+		// Request Task Data from Server //
 		let result = new Promise ((resolve, reject) => {
 			axios.get(`/api/tasks/${email}`)
 				.then((res) => {
@@ -41,7 +40,7 @@ class TaskService {
 				.catch((err)=> { reject(err) })
 		})
 
-		// [RETURN] Result of Promise //
+		// [RETURN] //
 		return result
 	}
 
@@ -63,7 +62,7 @@ class TaskService {
 				.catch((err)=> { reject(err) })
 		})
 
-		// [RETURN] Result of Promise //
+		// [RETURN] //
 		return result
 	}
 
@@ -82,7 +81,7 @@ class TaskService {
 	static deleteTask(id) {
 		return axios.delete(`/api/tasks/${id}`)
 	}
-	///////////////// CRRUD DONE /////////////////
+	////////////////////////// CRRUD DONE ///////////////////////////
 
 	// [T/F] Does User Own Task //
 	static taskOwnershipValidation(id, email) {

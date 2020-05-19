@@ -61,7 +61,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.custom { background: black; }
 
 	.title-logo {
@@ -89,8 +89,6 @@
 	}
 
 	@media only screen and (max-width: 500px) {
-		.middle-buttons {
-			display: none;
-		}
+		.middle-buttons { display: none; }
 	}
 </style>

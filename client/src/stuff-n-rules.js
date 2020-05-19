@@ -3,8 +3,8 @@
  * %%% VEE RULES %%% *
  * %%%%%%%%%%%%%%%%% *
  * This contains rules for vee-validatation
- * which lets you make forms be verfied for validity
- * before being summited. 
+ * which lets you make forms be verfied for
+ * validity before being summited. 
  */
 /*** [IMPORT] ***/
 import { extend } from 'vee-validate'
@@ -12,8 +12,6 @@ import { email } from 'vee-validate/dist/rules'
 
 /*** [IMPORT] Personal ***/
 import router from './router'
-
-
 
 /*** [VEE-VALIDATE] Rules ****/
 // Confirmed //

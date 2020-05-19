@@ -22,7 +22,7 @@
 <script>
 </script>
 
-<style>
+<style scoped>
 	/* Nav Container */
 	.sidebar {
 		z-index: 100;

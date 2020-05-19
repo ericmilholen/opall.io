@@ -1,9 +1,11 @@
 <template>
    <article>
+		<!-- Title -->
 		<section class="row w-100">
 			<h2 class="col-sm-12 my-3 text-white">Creat Task</h2>
 		</section>
 
+		<!-- Form -->
 		<ValidationObserver v-slot="{ handleSubmit }">
 			<form class="w-100" @submit.prevent="handleSubmit(createTask)">
 				<div class="row">
@@ -128,7 +130,6 @@
 	/*** [EXPORT] ***/
 	export default {
 		data: function() {
-			// Get Email
 			let email = UserServices.getEmail()
 
 			// [RETURN] //

@@ -2,8 +2,7 @@
  * %%%%%%%%%%%%%%%%%%% *
  * %%% TASKS ROUTE %%% *
  * %%%%%%%%%%%%%%%%%%% *
- * orded 
- * by "CRRUD" then alphabetical
+ * ordered by "CRRUD" then alphabetical
  * for other path
 */
 /*** [REQUIRE] ***/
@@ -13,12 +12,8 @@ const mongodb = require('mongodb')
 /*** [REQUIRE] Personal ***/
 require('dotenv').config()
 
-
-
 /*** [INIT] ***/
 const router = express.Router()
-
-
 
 /*** [CREATE] Add Task ***/
 router.post('/', async (req, res) => {
@@ -40,8 +35,6 @@ router.post('/', async (req, res) => {
 	res.status(201).send()
 })
 
-
-
 /*** [READ ALL] Get Tasks ***/
 router.get('/:email', async (req, res) => {
 	// [INIT] // Get DB Collection // Retrieve From Collection //
@@ -53,8 +46,6 @@ router.get('/:email', async (req, res) => {
 	// [RES SEND] //
 	res.send(retrievedData)
 })
-
-
 
 /*** [READ] Get Single Tasks ***/
 router.get('/task/:id', async (req, res) => {
@@ -68,8 +59,6 @@ router.get('/task/:id', async (req, res) => {
 	// [RES SEND] //
 	res.send(retrievedData)
 })
-
-
 
 /*** [UPDATE] Add Task ***/
 router.post('/task/update/:id', async (req, res) => {
@@ -92,8 +81,6 @@ router.post('/task/update/:id', async (req, res) => {
 	res.status(201).send()
 })
 
-
-
 /*** [DELETE] Delete Post ***/
 router.delete('/:id', async (req, res) => {
 	const tasks = await loadTasksCollection()
@@ -111,7 +98,7 @@ router.delete('/:id', async (req, res) => {
 router.get('/task/ownership-validation/:id', async (req, res) => {
 	const tasks = await loadTasksCollection()
 	
-	let foundObject = await tasks.findOne(
+	let retrievedData = await tasks.findOne(
 		{
 			_id: new mongodb.ObjectID(req.params.id),
 			email: req.query.email
@@ -119,10 +106,9 @@ router.get('/task/ownership-validation/:id', async (req, res) => {
 	)
 	console.log('email recieved:', req.query.email)
 
-	if (foundObject) { res.json({ owned: true }).send() }
+	if (retrievedData) { res.json({ owned: true }).send() }
 	else { res.json({ owned: false }).send() }
 })
-
 
 // [F] Tasks Collection in Database //
 async function loadTasksCollection() {
@@ -137,11 +123,11 @@ async function loadTasksCollection() {
 			useNewUrlParser: true,
 			useUnifiedTopology: true
 		}
-		
 	)
 
 	// [RETURN] //
 	return client.db(db_name).collection(c_name)
 }
 
+/*** [EXPORT] ***/
 module.exports = router

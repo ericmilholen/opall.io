@@ -1,3 +1,8 @@
+/**
+ * %%%%%%%%%%%%%%%%%%%%% *
+ * %%% USER SERVICES %%% *
+ * %%%%%%%%%%%%%%%%%%%%% *
+*/
 /*** [IMPORT] ***/
 import jwtDecode from 'jwt-decode'
 

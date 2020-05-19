@@ -1,5 +1,6 @@
 <template>
 	<article class="row">
+		<!-- Title -->
 		<section class="col-sm-12 my-4">
 			<h2 class="d-inline-block text-white">Your Tasks</h2>
 			<router-link to="/tasks/add-task" class="w-100">
@@ -100,7 +101,6 @@
 
 		created: async function() {
 			try {
-				// Call Function in Post Service Script //
 				this.tasks = await TaskService.getTasks(this.email)
 			}
 			catch(err) { this.error = err.message }
@@ -140,5 +140,4 @@
 		width: 250px;
 		margin: 10px;
 	}
-	
 </style>
